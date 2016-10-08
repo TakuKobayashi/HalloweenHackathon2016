@@ -9,6 +9,8 @@ public class BattleController : SceneController{
 	private Vector3 movePosition = Vector3.zero;
 	private Vector3 startPosition = Vector3.zero;
 
+	public static BattleController Instance{ get{ return (BattleController) Current; } }
+
 	protected override void OnStartSceneLoad(){
 		battleField.Initialize ();
 		battleUI.Initialize ();
@@ -31,6 +33,9 @@ public class BattleController : SceneController{
 				movePosition = touchEvent.position - startPosition;
 			}
 		}
-		battleUI.PutDebugText("Phase:" + touchEvent.phase + "\n" + "TouchPosition:" + touchEvent.position + "\n" + "StartPosition:" + startPosition + "\n" + "MovePosition:" + movePosition);
+	}
+
+	public void AddMessage(string message){
+		battleUI.PutDebugText(message);
 	}
 }
