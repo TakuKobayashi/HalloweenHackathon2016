@@ -21,14 +21,15 @@ public class BattleController : SceneController{
 
 	protected override void OnTouchEvent(TouchEvent touchEvent){
 		base.OnTouchEvent (touchEvent);
-		if (touchEvent.phase == TouchPhase.Began) {
-			movePosition = Vector3.zero;
-			startPosition = touchEvent.position;
-		} else if (touchEvent.phase == TouchPhase.Moved) {
-			movePosition = touchEvent.position - startPosition;
-		} else {
+		if (touchEvent.phase == TouchPhase.Ended) {
 			startPosition = Vector3.zero;
 			movePosition = Vector3.zero;
+		}else{
+			if (startPosition == Vector3.zero) {
+				startPosition = touchEvent.position;
+			} else {
+				movePosition = touchEvent.position - startPosition;
+			}
 		}
 		battleUI.PutDebugText("Phase:" + touchEvent.phase + "\n" + "TouchPosition:" + touchEvent.position + "\n" + "StartPosition:" + startPosition + "\n" + "MovePosition:" + movePosition);
 	}
