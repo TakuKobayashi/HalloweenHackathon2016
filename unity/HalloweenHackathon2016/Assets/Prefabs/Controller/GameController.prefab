@@ -37,20 +37,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 100996}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 081321a3a1f43444b83cdf918d959e9b, type: 3}
+  m_Script: {fileID: 11500000, guid: 69d574baef1ca49bf90c8f3c56451586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 1
-  initPrefabs:
-  - _gameObject: {fileID: 130934, guid: 21fbd56569da346a3a2fe10bd3c158e2, type: 2}
-  - _gameObject: {fileID: 148088, guid: 5c9fd6d020e8a4ad0ab2dc3ae0eace8c, type: 2}
-  - _gameObject: {fileID: 176766, guid: 6b4c95f3762a84fd88de82849ca88f7f, type: 2}
-  - _gameObject: {fileID: 137188, guid: 0f072a63b8bd04a1fa0ac03533deace4, type: 2}
-  - _gameObject: {fileID: 173894, guid: ca5275706132b40f28dd390207f16eb5, type: 2}
-  - _gameObject: {fileID: 109920, guid: 5f6d8106d7619854abba6b6e2a759798, type: 2}
-  - _gameObject: {fileID: 124410, guid: 82592974e552c475b87f5e63cdf3deab, type: 2}
-  - _gameObject: {fileID: 1000010813712834, guid: 2ff5b3ac3020b4749944d07aae858d0f,
-      type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
