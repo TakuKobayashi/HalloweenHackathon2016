@@ -25,6 +25,7 @@ public class GameController : SingletonBehaviour<GameController>, InputTouchEven
 	}
 
 	public static void Initialize(){
+
 	}
 
 	void OnLogCallback(string message, string trace, LogType type) {
