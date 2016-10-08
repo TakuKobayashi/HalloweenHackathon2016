@@ -9,27 +9,12 @@ public class Character : MonoBehaviour {
 
 	void Start () {
 		TPSCharacter = GetComponent<ThirdPersonCharacter>();
-		BattleController.Current.OnTouch = MoveControl;
 	}
 
-	void Update(){
-		move(movePosition);
+	public void Initialize(){
 	}
 
-	bool MoveControl(TouchEvent touchEvent){
-		if (touchEvent.phase == TouchPhase.Began) {
-			movePosition = Vector3.zero;
-			startPosition = touchEvent.position;
-		} else if (touchEvent.phase == TouchPhase.Moved) {
-			movePosition = touchEvent.position - startPosition;
-		} else {
-			startPosition = Vector3.zero;
-			movePosition = Vector3.zero;
-		}
-		return true;
-	}
-
-	private void move(Vector3 movePosition){
+	public void Move(Vector3 movePosition){
 		Vector3 move = movePosition.y * Vector3.forward + movePosition.x * Vector3.right;
 		TPSCharacter.Move(move, false, false);
 	}
