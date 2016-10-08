@@ -54,3 +54,7 @@ MonoBehaviour:
   battleField: {fileID: 0}
   battleUI: {fileID: 0}
   character: {fileID: 0}
+  enemyPrefabList:
+  - _gameObject: {fileID: 1000012922435424, guid: 5c58bb76234ea4cba9448483b8e4a811,
+      type: 2}
+  appearSecond: 10
