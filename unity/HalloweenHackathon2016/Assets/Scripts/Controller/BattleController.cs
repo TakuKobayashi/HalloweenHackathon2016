@@ -11,6 +11,7 @@ public class BattleController : SceneController{
 
 	private Vector3 movePosition = Vector3.zero;
 	private Vector3 startPosition = Vector3.zero;
+	private float pressingSecond = 0f;
 
 	public static BattleController Instance{ get{ return (BattleController) Current; } }
 	private float time = 0;
@@ -22,7 +23,6 @@ public class BattleController : SceneController{
 	}
 
 	void Update(){
-		character.Move(movePosition);
 		time += Time.deltaTime;
 		if (time > (time % appearSecond)) {
 			AppearEnemy ();
@@ -33,14 +33,22 @@ public class BattleController : SceneController{
 	protected override void OnTouchEvent(TouchEvent touchEvent){
 		base.OnTouchEvent (touchEvent);
 		if (touchEvent.phase == TouchPhase.Ended) {
+			if (pressingSecond < 1.0f) {
+				character.Attack ();
+			} else {
+				character.Stop ();
+			}
 			startPosition = Vector3.zero;
 			movePosition = Vector3.zero;
+			pressingSecond = 0f;
 		}else{
 			if (startPosition == Vector3.zero) {
 				startPosition = touchEvent.position;
 			} else {
 				movePosition = touchEvent.position - startPosition;
+				character.Move(movePosition);
 			}
+			pressingSecond += Time.deltaTime;
 		}
 	}
 

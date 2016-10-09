@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System;
 using System.Collections;
 
 public class WebCameraController : MonoBehaviour {
@@ -8,6 +9,8 @@ public class WebCameraController : MonoBehaviour {
 	private string log = "";
 	private string log2 = "";
 	private Heartrate heartrate = new Heartrate();
+
+	public Action OnBeat;
 
 	void Start () {
 		WebCamDevice[] devices = WebCamTexture.devices;
@@ -32,8 +35,12 @@ public class WebCameraController : MonoBehaviour {
 				heartrate.reset ();
 				return;
 			}
-			log2 = "beat:" + heartrate.beat () + "bpm:" + heartrate.getBpm () + "span:" + heartrate.getSpan ();
-			BattleController.Instance.AddMessage (tmplog + log2);
+			if (heartrate.beat ()) {
+				if (OnBeat != null)
+					OnBeat ();
+			}
+//			log2 = "beat:" + heartrate.beat () + "bpm:" + heartrate.getBpm () + "span:" + heartrate.getSpan ();
+//			BattleController.Instance.AddMessage (tmplog + log2);
 		}
 	}
 
